@@ -1,0 +1,26 @@
+<StackLayout>
+    
+    <StackLayout>
+        <Label text="Hello user!"></Label>
+        <Button [text]="addingPlayer ? 'Cancel' : 'Add a player'" (tap)="onPlayerAdd($event)"></Button>
+        <Button [text]="addingGame ? 'Cancel' : 'Add a game'" (tap)="onGameAdd($event)"></Button>
+    </StackLayout>
+    
+    <StackLayout *ngIf="addingPlayer">
+        <TextField required hint="Add player's name" [(ngModel)]="this.name"></TextField>
+        <TextField required keyboardType="number" hint="Add player's number" [(ngModel)]="this.nb"></TextField>
+        <TextField required keyboardType="number" hint="Number of goals" [(ngModel)]="this.goals"></TextField>
+        <Button text="Submit" (tap)="onSubmit($event)"></Button>
+    </StackLayout>
+
+    <StackLayout *ngIf="addingGame">
+        <TextField required hint="Add opponent's name" [(ngModel)]="this.name"></TextField>
+        <Label text="Victoire ?" textWrap="true" ></Label>         
+        <Switch required checked="false" (checkedChange)="onChecked($event)" ></Switch>
+        <Button text="Submit" (tap)="onSubmit($event)"></Button>
+    </StackLayout>
+ 
+</StackLayout>
+
+
+

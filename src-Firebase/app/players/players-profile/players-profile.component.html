@@ -1,0 +1,17 @@
+<ActionBar class="action-bar" [title]="player.name" *ngIf="!isLoading">
+    <NavigationButton android.systemIcon="ic_menu_back" (tap)="onBackButtonTap()"> </NavigationButton>
+</ActionBar>
+
+<StackLayout orientation="vertical" backgroundColor="#D8D8D8">
+    <CardView height="400" class="cardStyle" margin="10" elevation="40" radius="1" >
+        <GridLayout rows="*,*,*,*" columns="*,*,*" *ngIf="!isLoading" class="h3 p-15">
+            <Label row="0" col="0" rowSpan="2" colSpan="3" text="photo profil" backgroundColor="green" ></Label>
+            <Label row="2" col="0" colSpan="3" [text]="player.name" backgroundColor="red"></Label>
+            <Label row="3" col="0" [text]="player.id" backgroundColor="blue"></Label>
+            <Label row="3" col="1" [text]="player.number" backgroundColor="pink"></Label>
+            <Label row="3" col="2" [text]="player.goals" backgroundColor="gray"></Label>
+        </GridLayout>
+
+        <ActivityIndicator [busy]="isLoading"></ActivityIndicator>
+    </CardView>
+</StackLayout>

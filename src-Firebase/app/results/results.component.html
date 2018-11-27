@@ -1,0 +1,23 @@
+<TabView tabBackgroundColor="white" tabTextColor="#C3C3C3" androidSelectedTabHighlightColor="#f28610" selectedTabTextColor="#f28610">
+
+    <StackLayout *tabItem="{title: 'Games'}" >
+        <ListView [items]="myGames$ | async" class="list-group" separatorColor="gray">
+            <ng-template let-game="item">
+                <Label [text]="'France vs '+ game.opponentName" class="list-group-item" [backgroundColor]="game.win ? 'green' : 'red'"></Label>
+            </ng-template>
+        </ListView>
+    </StackLayout>
+    <StackLayout *tabItem="{title: 'Rankings'}">
+        <ListPicker [items]="filters" selectedIndex="0" (selectedIndexChange)="selectedIndexChanged($event)" class="p-15" height="100"></ListPicker>
+        <ListView [items]="sortedPlayers$ | async" class="list-group">
+            <ng-template let-player="item" let-i="index">
+                <StackLayout class="list-group-item">
+                    <Label [text]="player.name" class="list-group-item-heading"></Label>
+                    <Label [text]="player.number" class="list-group-item-text" textWrap="true" *ngIf="isNumber"></Label>
+                    <Label [text]="player.goals" class="list-group-item-text" textWrap="true" *ngIf="isGoals"></Label>
+                </StackLayout>
+            </ng-template>
+        </ListView>
+    </StackLayout>
+
+</TabView>

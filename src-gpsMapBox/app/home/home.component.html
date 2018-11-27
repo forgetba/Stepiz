@@ -1,0 +1,30 @@
+<StackLayout>
+    <StackLayout orientation="horizontal">
+        <Button [text]="following ? 'Unfollow user' : 'Follow user'" (tap)="toggleFollowing($event)"></Button>
+        <Button text="Start monitoring" (tap)="startMonitor($event)"></Button>
+        <Button text="End" [nsRouterLink]="['home/postrun']" (tap)="stopMonitor($event)"></Button>
+        <!-- <Button width="100" height="100" text="Get location 1" (tap)="getLocation1($event)"></Button>
+        <Button width="100" height="100" text="Get location 2" (tap)="getLocation2($event)"></Button>
+        <Button width="100" height="100" text="Distance" (tap)="getDistance($event)"></Button> -->
+
+    </StackLayout>
+
+    <Label [text]="'The distance is ' + distance + ' meters'" ></Label>
+    <Label [text]="'You have been monitored for ' + seconds +' secondes'" ></Label>
+        
+    <ContentView height="100%" width="100%">
+        <Mapbox
+            accessToken="pk.eyJ1IjoidG9tdmlvdyIsImEiOiJjam45ZDNmNjQ2eGV5M3JxY3NxaXNjZmV3In0.8H4oezpHvCToq72VN_noDA"
+            mapStyle="traffic_day"
+            hideLogo="true"
+            hideCompass="true"
+            zoomLevel="15"
+            showUserLocation="true"
+            disableZoom="false"
+            disableRotation="false"
+            disableScroll="false"
+            disableTilt="false"
+            (mapReady)="onMapReady($event)">
+        </Mapbox>
+    </ContentView>
+</StackLayout>

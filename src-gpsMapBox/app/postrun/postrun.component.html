@@ -1,0 +1,10 @@
+<StackLayout>
+    <Label [text]="'You ran ' + distance + ' meters'" ></Label>
+    <Label [text]="'You have run ' + time +' seconds'" ></Label>
+    <Label [text]="'Your speed is ' + speed + ' km/h'" ></Label>
+    <Label [text]="'Your pace is ' + pace +' min/km'" ></Label>
+
+    <Button text="Back to home page" [nsRouterLink]="['/home']" (tap)="endActivity($event)"></Button> 
+</StackLayout>
+
+        

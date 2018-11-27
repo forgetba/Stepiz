@@ -1,0 +1,18 @@
+<TabView selectedIndex="1" androidTabsPosition="bottom" tabBackgroundColor="#f28610" tabTextColor="#db4c0d" selectedTabTextColor="white" *ngIf="!isLoading">
+
+    <page-router-outlet
+        *tabItem="{title: 'Players'}"
+        name="playersTab">
+    </page-router-outlet>
+
+    <page-router-outlet
+        *tabItem="{title: 'Home'}"
+        name="homeTab">
+    </page-router-outlet>
+
+    <page-router-outlet
+        *tabItem="{title: 'Results'}"
+        name="resultsTab">
+    </page-router-outlet>
+
+</TabView>

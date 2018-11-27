@@ -1,0 +1,14 @@
+<ActionBar title="List of players" class="action-bar">
+</ActionBar>
+
+<GridLayout>
+    <ListView [items]="myPlayers$ | async" class="list-group" *ngIf="myPlayers$">
+        <ng-template let-player="item" let-i="index">
+            <StackLayout class="list-group-item" >
+               <Label [text]="player.name" [nsRouterLink]="['players', player.id]"></Label>
+            </StackLayout>
+        </ng-template>
+    </ListView>
+
+    <ActivityIndicator [busy]="isLoading"></ActivityIndicator>
+</GridLayout>
